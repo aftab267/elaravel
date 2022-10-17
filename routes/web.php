@@ -28,3 +28,6 @@ Route::get('/',[HomeController::class,'index']);
 
 
 // Backend Side........................................
+Route::get('/admin',[AdminController::class,'index']);
+Route::get('/dashboard',[AdminController::class,'show_dashboard']);
+Route::post('/admin-dashboard',[AdminController::class,'dashboard']);
