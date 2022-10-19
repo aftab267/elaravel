@@ -19,22 +19,29 @@
 
             </div>
         <div class="box-content">
-            <form class="form-horizontal" method="post" action="">
+            <p class="alert-success">
+                @php
+                 $message=Session::get('message');
+                 if($message){
+                     echo $message;
+                     Session::put('message',null);
+                 }
+                @endphp
+            </p>
+            <form class="form-horizontal" method="post" action="{{ url('/save-category') }}">
                 @csrf
               <fieldset>
 
                 <div class="control-group">
                   <label class="control-label" for="date01">Category Name</label>
                   <div class="controls">
-                    <input type="text" class="input-xlarge" name="category_name" >
+                    <input type="text" class="input-xlarge" name="category_name" required >
                   </div>
                 </div>
-
-
                 <div class="control-group hidden-phone">
                   <label class="control-label" for="textarea2">Category Description</label>
                   <div class="controls">
-                    <textarea class="cleditor" name="category_description" rows="3"></textarea>
+                    <textarea class="cleditor" name="category_description" rows="3" ></textarea>
                   </div>
                 </div>
                 <div class="control-group hidden-phone">

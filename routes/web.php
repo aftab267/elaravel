@@ -37,3 +37,5 @@ Route::post('/admin-dashboard',[AdminController::class,'dashboard']);
 
 // category releted route
 Route::get('/add-category',[CategoryController::class,'index']);
+Route::get('/all-category',[CategoryController::class,'all_category']);
+Route::post('/save-category',[CategoryController::class,'save_category']);
