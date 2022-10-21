@@ -42,5 +42,36 @@ class CategoryController extends Controller
         return Redirect::to('/add-category');
 
     }
+    public function inactive_category($category_id)
+    {
+       DB::table('tbl_categories')->where('category_id',$category_id)->update(['publication_status'=>0]);
+       Session::put('message','Category Inactive Successfully !!');
+       return Redirect::to('/all-category');
+    }
+    public function active_category($category_id)
+    {
+       DB::table('tbl_categories')->where('category_id',$category_id)->update(['publication_status'=>1]);
+       Session::put('message','Category Activated Successfully !!');
+       return Redirect::to('/all-category');
+    }
+    public function edit_category($category_id)
+    {
+          $result=DB::table('tbl_categories')->where('category_id',$category_id)->first();
+          return view('admin.edit_category',compact('result'));
+    }
+    public function update_category(Request $request,$category_id)
+    {
+        $datas=array();
+        $datas['category_name']=$request->category_name;
+        $datas['category_description']=$request->category_description;
+        DB::table('tbl_categories')->where('category_id',$category_id)->update($datas);
+        Session::put('message','Category Updated Successfully ! ');
+        return Redirect::to('/all-category');
+    }
+    public function delete_category($category_id){
+        DB::table('tbl_categories')->where('category_id',$category_id)->delete();
+        Session::put('message','Category deleted Successfully !!');
+        return Redirect::to('/all-category');
+    }
 
 }

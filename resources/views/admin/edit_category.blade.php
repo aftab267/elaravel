@@ -9,13 +9,13 @@
             </li>
             <li>
                 <i class="icon-edit"></i>
-                <a href="#">Add Category</a>
+                <a href="#">Update Category</a>
             </li>
         </ul>
     <div class="row-fluid sortable">
         <div class="box span12">
             <div class="box-header" data-original-title>
-                <h2><i class="halflings-icon edit"></i><span class="break"></span>Add Category</h2>
+                <h2><i class="halflings-icon edit"></i><span class="break"></span>Update Category</h2>
 
             </div>
         <div class="box-content">
@@ -28,30 +28,32 @@
                  }
                 @endphp
             </p>
-            <form class="form-horizontal" method="post" action="{{ url('/save-category') }}">
+            <form class="form-horizontal" method="post" action="{{ url('/update-category',$result->category_id) }}">
                 @csrf
               <fieldset>
                 <div class="control-group">
                   <label class="control-label" for="date01">Category Name</label>
                   <div class="controls">
-                    <input type="text" class="input-xlarge" name="category_name" required >
+                    <input type="text" class="input-xlarge" name="category_name" value="{{ $result->category_name }}" >
                   </div>
                 </div>
                 <div class="control-group hidden-phone">
                   <label class="control-label" for="textarea2">Category Description</label>
                   <div class="controls">
-                    <textarea class="cleditor" name="category_description" rows="3" ></textarea>
+                    <textarea class="cleditor" name="category_description" rows="3"  >
+                        {{ $result->category_description }}
+                    </textarea>
                   </div>
                 </div>
-                <div class="control-group hidden-phone">
+                {{-- <div class="control-group hidden-phone">
                   <label class="control-label" for="textarea2">Publication Status</label>
                   <div class="controls">
                     <input type="checkbox" name="publication_status" value="1">
                   </div>
-                </div>
+                </div> --}}
                 <div class="form-actions">
-                  <button type="submit" class="btn btn-primary">Add Category</button>
-                  <button type="reset" class="btn">Cancel</button>
+                  <button type="submit" class="btn btn-primary">Update Category</button>
+
                 </div>
               </fieldset>
             </form>
