@@ -33,14 +33,11 @@
           <th>Actions</th>
       </tr>
   </thead>
-
-
   <tbody>
       @php
       $x=1;
       @endphp
     @foreach($result as $data)
-
     <tr>
         <td>{{ $x++ }}</td>
         <td class="center">

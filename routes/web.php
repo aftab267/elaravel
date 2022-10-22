@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ManufactureController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,3 +52,12 @@ Route::get('/add-manufacture',[ManufactureController::class,'index']);
 Route::post('/save-manufacture',[ManufactureController::class,'save_manufacture']);
 Route::get('/all-manufacture',[ManufactureController::class,'all_manufacture']);
 Route::get('/delete-manufacture/{manufacture_id}',[ManufactureController::class,'delete_manufacture']);
+Route::get('/inactive_manufacture/{manufacture_id}',[ManufactureController::class,'inactive_manufacture']);
+Route::get('/active_manufacture/{manufacture_id}',[ManufactureController::class,'active_manufacture']);
+Route::get('/edit-manufacture/{manufacture_id}',[ManufactureController::class,'edit_manufacture']);
+Route::post('/update-manufacture/{manufacture_id}',[ManufactureController::class,'update_manufacture']);
+
+// Products route................................................
+Route::get('/add-product',[ProductController::class,'index']);
+Route::post('/save-product',[ProductController::class,'save_product']);
+
