@@ -155,6 +155,11 @@
 						</ol>
 
 						<div class="carousel-inner">
+                            <?php
+                            $all_publish_slider=DB::table('sliders')
+                            ->where('publication_status',1)->get();
+                            foreach ($all_publish_slider as $data) {
+                           ?>
 							<div class="item active">
 								<div class="col-sm-6">
 									<h1><span>E</span>-SHOPPER</h1>
@@ -166,8 +171,12 @@
 									<img src="{{ URL::to('frontend/images/home/girl1.jpg') }}" class="girl img-responsive" alt="" />
 									<img src="{{ URL::to('frontend/images/home/pricing.png') }}"  class="pricing" alt="" />
 								</div>
+                                <?php
+                                }
+                                ?>
 							</div>
-							<div class="item">
+
+							{{-- <div class="item">
 								<div class="col-sm-6">
 									<h1><span>E</span>-SHOPPER</h1>
 									<h2>100% Responsive Design</h2>
@@ -178,9 +187,9 @@
 									<img src="{{ URL::to('frontend/images/home/girl2.jpg') }}" class="girl img-responsive" alt="" />
 									<img src="{{ URL::to('frontend/images/home/pricing.png') }}"  class="pricing" alt="" />
 								</div>
-							</div>
+							</div> --}}
 
-							<div class="item">
+							{{-- <div class="item">
 								<div class="col-sm-6">
 									<h1><span>E</span>-SHOPPER</h1>
 									<h2>Free Ecommerce Template</h2>
@@ -191,7 +200,7 @@
 									<img src="{{ URL::to('frontend/images/home/girl3.jpg') }}" class="girl img-responsive" alt="" />
 									<img src="{{ URL::to('frontend/images/home/pricing.png') }}" class="pricing" alt="" />
 								</div>
-							</div>
+							</div> --}}
 
 						</div>
 
@@ -443,7 +452,7 @@
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-					<p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
+					<p class="pull-left">Copyright © 2022 E-SHOPPER Inc. All rights reserved.</p>
 					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
 				</div>
 			</div>

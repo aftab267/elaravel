@@ -7,6 +7,7 @@ use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ManufactureController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,7 @@ Route::get('/',[HomeController::class,'index']);
 // Backend Side........................................
 Route::get('/logout',[SuperAdminController::class,'logout']);
 Route::get('/admin',[AdminController::class,'index']);
-Route::get('/dashboard',[AdminController::class,'show_dashboard']);
+Route::get('/dashboard',[SuperAdminController::class,'index']);
 Route::post('/admin-dashboard',[AdminController::class,'dashboard']);
 
 // category releted route..................................................
@@ -60,4 +61,22 @@ Route::post('/update-manufacture/{manufacture_id}',[ManufactureController::class
 // Products route................................................
 Route::get('/add-product',[ProductController::class,'index']);
 Route::post('/save-product',[ProductController::class,'save_product']);
+Route::get('/all-product',[ProductController::class,'all_product']);
+Route::get('/inactive_product/{product_id}',[ProductController::class,'inactive_product']);
+Route::get('/active_product/{product_id}',[ProductController::class,'active_product']);
+Route::get('/delete-product/{product_id}',[ProductController::class,'delete_product']);
+Route::get('/edit-product/{product_id}',[ProductController::class,'edit_product']);
+Route::post('/update-product/{product_id}',[ProductController::class,'update_product']);
+
+// Slider Routes are here.....................................................................
+Route::get('/add-slider',[SliderController::class,'index']);
+Route::post('/save-slider',[SliderController::class,'save_slider']);
+Route::get('/all-slider',[SliderController::class,'all_slider']);
+Route::get('/all-slider',[SliderController::class,'all_slider']);
+Route::get('/inactive_slider/{slider_id}',[SliderController::class,'inactive_slider']);
+Route::get('/active_slider/{slider_id}',[SliderController::class,'active_slider']);
+Route::get('/delete-slider/{slider_id}',[SliderController::class,'delete_slider']);
+
+
+
 

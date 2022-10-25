@@ -19,7 +19,6 @@ class CategoryController extends Controller
        $result= DB::table('tbl_categories')->get();
             return view('admin.all_category',compact('result'));
 
-    //    return view('admin.all_category');
     }
     public function save_category(Request $request)
     {
